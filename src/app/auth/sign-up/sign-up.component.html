@@ -1,0 +1,53 @@
+<div class="container-login">
+    <div   class="wrap-login">
+        <div class="login-right-side">
+          <form class="login-form validate-form">
+            <div class="login-form-title">
+              Sign Up
+              <span class="">
+                Enter your details           
+              </span>
+            </div>
+            <div class="form-group">
+              <label  class="text-white">Email</label>
+              <input type="email" class="form-control"  [(ngModel)]="emailregister" name="emailregister">
+              <small class="error" *ngIf="emailRegisterPrompt">Email is Required!</small>
+    
+            </div>
+            <div class="form-group">
+              <label  class="text-white"  >Name</label>
+              <input type="text" class="form-control" [(ngModel)]="nameRegister" name="nameRegister">
+              <small class="error" *ngIf="nameRegisterPrompt">Name is Required!</small>
+    
+            </div>
+            <div class="form-group">
+              <label class="text-white"  >Password</label>
+              <input type="text" class="form-control" [(ngModel)]="passwordRegister" name="passwordRegister">
+              <small class="error" *ngIf="passwordRegisterPrompt">Password is Required!</small>
+              <small class="error" *ngIf="passwordLength">Password should atleast 6 character!</small>
+            </div>
+            <div class="form-group">
+              <label  class="text-white"  >Confirm Password</label>
+              <input type="email" class="form-control" [(ngModel)]="confirmPassword" name="confirmPassword">
+              <small class="error" *ngIf="confirmPasswordPrompt">Confirm Password is Required!</small>
+              <small class="error" *ngIf="passwordMatch">Password do not match!</small>
+    
+            </div>
+              <div class="mb-4 mt-2 d-block">
+                <div class="forgot-password mb-4 d-inline-block">
+                  <a href="#" class="text-white" [routerLink]="['/login']">
+                    Already have an account
+                  </a>
+                </div>
+                <button class="login-form-btn" (click)="registerUser()">Sign Up</button>
+            </div>
+          </form>
+        </div>
+        <div class="login-left-side d-flex">
+          <div class="m-auto z-index-1 ">
+            <img class="w-100" src="./assets/media/Zainergy-logo.svg" alt="Zainengy" />
+          </div>
+          <img src="./assets/media/login-leftside-element.svg" class="leftside-element" alt="" />
+        </div>
+      </div> -
+  </div>

@@ -1,0 +1,222 @@
+<!-- <div class="row">
+  <div class="col-md-12 pt-4 mt-3 mb-4">
+    <h2 class="text-midnight font-weight-bold">Settings</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-3 mb-5 widget" *ngFor='let devices of deviceArray'>
+    <div class="card fun-blue-bg">
+
+      <div class="card-body">
+
+        <div class="d-flex justify-content-between">
+          <div class="align-self-center">
+            <h6 class="text-midnight mt-2 mb-3 font-weight-bold">{{ devices.name }}</h6>
+          </div>
+        </div>
+        
+        <div class="mb-4 scroll-data" style="min-height: 80px; max-height: 80px;">
+          <div class="form-check" *ngFor='let param of devices.parameters'>
+
+              <input class="form-check-input" type="checkbox" name="{{ param.device_type_id }}" id="{{ param.device_type_id }}" value="{{ param.device_id }}" [checked]="param.param_status" (change)="deviceParamCheckbox($event, param)">
+              <label class="form-check-label text-downy">{{ param.description }}</label>
+              
+          </div>
+        </div>
+      
+        <button class="secondary-btn mb-4" (click)="updateSettings( devices, devices.parameters)">Update</button>
+
+      </div>
+
+    </div>
+  </div>
+</div> -->
+
+<ngb-tabset #t="ngbTabset">
+
+  <ngb-tab id="alarm" title="Alarm">
+    <ng-template ngbTabContent>
+      <div class="row mt-4">
+        <div class="col-lg-12 col-xl-12 stretch-card">
+          <div class="row flex-grow">
+
+            <div class="col grid-margin stretch-card">
+              <div class="card">
+
+                <div class="card-body">
+                <div class="br-1 float-left pr-2 position-relative">
+                  <div class="tree-view float-left" style="max-width: 255px;min-width: 255px;">
+                    <ul>
+                      <li> Plot#45
+                        <ul>
+                          <li><i class="link-icon tree-icon" data-feather="chevron-right"></i> Hording Lighting
+                            <ul>
+                              <li>
+                                <i class="link-icon tree-icon" data-feather="chevron-right"></i> Hording Lighting
+                              </li>
+                            </ul>
+                          </li>
+                          <li><i class="link-icon tree-icon" data-feather="chevron-right"></i> Hording Lighting 02
+                            <ul>
+                              <li>
+                                <i class="link-icon tree-icon" data-feather="chevron-right"></i> Hording Lighting
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li> Plot#47
+                        <ul>
+                          <li><i class="link-icon tree-icon" data-feather="chevron-right"></i> Hording Lighting
+                            <ul>
+                              <li><i class="link-icon tree-icon" data-feather="chevron-right"></i> Hording
+                                Lighting
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li> Plot#49
+                        <ul>
+                          <li><i class="link-icon tree-icon" data-feather="chevron-right"></i> Hording Lighting
+                            <ul>
+                              <li><i class="link-icon tree-icon" data-feather="chevron-right"></i> Hording
+                                Lighting
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li> Plot#51
+                        <ul>
+                          <li><i class="link-icon tree-icon" data-feather="chevron-right"></i> Hording Lighting
+                            <ul>
+                              <li><i class="link-icon tree-icon" data-feather="chevron-right"></i> Hording
+                                Lighting
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li> Plot#52
+                        <ul>
+                          <li><i class="link-icon tree-icon" data-feather="chevron-right"></i> Hording Lighting</li>
+                          <li><i class="link-icon tree-icon" data-feather="chevron-right"></i> Hording Lighting</li>
+                        </ul>
+                      </li>
+
+                      <li> Plot#54
+                        <ul>
+                          <li><i class="link-icon tree-icon" data-feather="chevron-right"></i> Hording Lighting
+                            <ul>
+                              <li><i class="link-icon tree-icon" data-feather="chevron-right"></i> Hording
+                                Lighting
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li> Plot#56
+                        <ul>
+                          <li><i class="link-icon tree-icon" data-feather="chevron-right"></i> Hording Lighting
+                            <ul>
+                              <li><i class="link-icon tree-icon" data-feather="chevron-right"></i> Hording
+                                Lighting
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li> Plot#57
+                        <ul>
+                          <li><i class="link-icon tree-icon" data-feather="chevron-right"></i> Hording Lighting
+                            <ul>
+                              <li><i class="link-icon tree-icon" data-feather="chevron-right"></i> Hording
+                                Lighting
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                  <form class="">
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <div class="form-group">
+                          <label>Parameter</label>
+                          <select class="" name="Parameter">
+                            <option value="Parameter-1">Parameter 1</option>
+                            <option value="Parameter-2">Parameter 2</option>
+                          </select>
+                        </div>
+                      </div><!-- Col -->
+                      <div class="col-sm-4">
+                        <div class="form-group mb-0">
+                          <label for="">Threshold Values</label>
+                        </div>
+                        <div class="form-row">
+                          <div class="col">
+                            <div class="form-group">
+                              <input type="text" placeholder="Min Val" class="form-control" id="min-val"
+                                autocomplete="off">
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="form-group">
+                              <input type="text" placeholder="Max Val" class="form-control" id="max-val"
+                                autocomplete="off">
+                            </div>
+                          </div>
+                        </div>
+                      </div><!-- Col -->
+                      <div class="col-sm-4">
+                        <div class="form-group">
+                          <label for="alarm-emails">Alarm Emails</label>
+                          <input type="email" class="form-control" id="alarm-emails" placeholder="user@zainergy.com" autocomplete="off">
+                        </div>
+                      </div><!-- Col -->
+
+                      <div class="col-sm-12">
+                        <div class="form-group">
+                          <label>Alarm email text</label>
+                          <textarea class="form-control"></textarea>
+                        </div>
+                      </div><!-- Col -->
+
+                      <div class="col-sm-12">
+                        <div class="form-group float-right mb-0">
+                          <button type="submit" class="btn theme-primary-btn">Update Setting</button>
+                        </div>
+                      </div><!-- Col -->
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- row -->
+    </ng-template>
+  </ngb-tab>
+
+  <ngb-tab id="cost" title="Cost">
+    <ng-template ngbTabContent>
+    </ng-template>
+  </ngb-tab>
+
+  <ngb-tab id="shift-timing" title="Shift timing">
+    <ng-template ngbTabContent>
+    </ng-template>
+  </ngb-tab>
+
+</ngb-tabset>

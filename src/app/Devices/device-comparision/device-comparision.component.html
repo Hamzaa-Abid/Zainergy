@@ -1,0 +1,97 @@
+<div class="row">
+  <div class="col-md-12 pt-4 mt-3">
+    <h2 class="text-midnight font-weight-bold">Comparison Devices</h2>
+  </div>
+</div>
+<div class="row pb-5">
+  <div class="col-lg-3">
+    <div class="card fun-blue-bg h-100">
+      <div class="card-body">
+        <div class="scroll-data" *ngIf="selectedItems" style="min-height: calc(100% - 90px);">
+          <div class="treeview js-treeview">
+            <ul >
+              <li *ngFor="let device of selectedItems;let i=index"> 
+                <div class="treeview__level">
+                  <span class="level-title">{{device.itemName}}</span>
+                </div>
+                <ul *ngIf="device.selectedParam">
+                  <li>
+                    <div class="treeview__level">
+                      <span class="level-title">{{device.selectedParam}}</span>
+                    </div>
+                  </li>               
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+            <div class="compare-btn">
+              <button mat-raised-button color="primary" (click)="submit()" [disabled]="selectedItems[selectedItems?.length - 1]?.selectedParam?.length == null || !selectedDuration">Compare</button>
+            </div>
+        </div>
+      </div>  
+  </div>
+  <div class="col-lg-9">
+    <div class="card fun-blue-bg">
+      <div class="card-body">
+        <div class="row">
+
+          <div class="col-lg-12">
+            <div class="card fun-blue-bg mb-3">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-4">
+                    <angular2-multiselect [data]="filteredItems" 
+                    [(ngModel)]="deviceType" 
+                    (ngModelChange)="getSimilarDevices()"
+                    [settings]="settings2">
+                    </angular2-multiselect>
+                  </div>
+                  <div class="col-md-4">
+                    <angular2-multiselect [data]="filteredDevices" 
+                    [(ngModel)]="selectedItems" 
+                    (ngModelChange)="getDevicesSelect()"
+                    [settings]="settings">
+                    </angular2-multiselect>
+                  </div>
+  
+          <div class="col-md-4">
+            <angular2-multiselect [data]="durationArray" 
+            [(ngModel)]="selectedDuration" 
+            [settings]="singleSelectionSettings">
+            </angular2-multiselect>
+          </div>
+      </div>
+    </div>
+    </div>
+    <div class="card fun-blue-bg compare-device">
+      <div class="card-body">
+       
+      <div class="row">
+        <div class="col-md-12" *ngIf="filteredItems.length > 0">
+          <mat-tab-group [disableRipple]="true" [backgroundColor]="background">
+            <ng-container *ngFor="let item of deviceType;let i=index">
+              <mat-tab>
+                <mat-radio-group *ngIf='selectedItems.length  > 0' aria-label="Select an option" (change)="onChange($event,i)" style="margin:20px">
+                  <ng-container *ngFor="let params of selectedItems[0].parameters">
+                    <mat-radio-button color="primary" [value]="params.parameter" [name]="params.type" style="margin:20px">{{params.description}}</mat-radio-button>
+                  </ng-container>
+                </mat-radio-group>
+              </mat-tab>
+            </ng-container>
+          </mat-tab-group>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <!-- <h4 class="card-title">Device Comparision Chart</h4> -->
+          <!-- <canvas baseChart height="130" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+            [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType">
+          </canvas> -->
+        </div>
+      </div>
+      
+    </div>
+    </div>
+  </div>  
+</div>

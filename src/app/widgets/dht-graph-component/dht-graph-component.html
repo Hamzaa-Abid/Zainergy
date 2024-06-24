@@ -1,0 +1,53 @@
+<div class="row mt-2 db-chart" id='graphGeneric'>
+    <div *ngFor='let params of paramDetail;let i = index' class="col-lg-6 col-xl-6" id='{{params.parameter}}'>
+        <div *ngIf='params.graph && params.graph.length > 0' class="chart-card fun-blue-bg mb-4">
+            <div class="chart-title" id="text1"> {{params.description}}
+                <p class="mb-0"> </p>
+                <select id="{{params.description}}" class="mr-2 custom-select text-center"[(ngModel)]="getlabel[i]" style="max-width: 140px; margin-top: -3px;" (ngModelChange)="getGraphDetails(params,[i])">
+                    <option id="{{graph.id}}"  *ngFor="let graph of params.graph"   value="{{graph.id}}">{{ graph.name }}</option>
+                  </select>
+                <button class="full-screen-btn" *ngIf="lineExpand == false" (click)="fullScreen(params.parameter)"><img
+                        src="./assets/media/icons/expand.svg"></button>
+                <button class="full-screen-btn" *ngIf="lineExpand == true" (click)="fullScreen(params.parameter)"><img
+                        src="./assets/media/icons/minimize.svg"></button>
+                <div ngbDropdown container="body" *ngIf='params.graph && params.graph[0].graph_id == 1 || params.graph[0].graph_id == 2' class="d-inline-block" placement="bottom-right">
+                    <button tabindex="0" class="btn" id="cost-predicted" ngbDropdownToggle><img
+                            src="./assets/media/icons/droplist.svg" alt="more"></button>
+                    <div ngbDropdownMenu aria-labelledby="cost-predicted" class="dropdown-menu-right">
+                        <button ngbDropdownItem (click)='generateCSV(lineChartData[i])'><img
+                                src="./assets/media/icons/csv.svg" class="mr-2" alt="CSV" />Export
+                            as
+                            CSV</button>
+                        <div class="dropdown-divider"></div>
+                        <button ngbDropdownItem (click)='downloadPDF(params.parameter, lineChartData[i],$event)' name="Pdf"><img
+                                src="./assets/media/icons/pdf.svg" class="mr-2" />Export
+                            as PDF</button>
+                        <div class="dropdown-divider"></div>
+                        <button ngbDropdownItem  (click)='downloadPDF(params.parameter, lineChartData[i],$event)' name="Print"><img src="./assets/media/icons/print.svg" class="mr-2"
+                                alt="CSV" />Print</button>
+                    </div>
+                </div>
+            </div>
+            <div class="chart" style="padding-right: 10px; padding-top: 10px;">
+                <div *ngIf='showGraph && params.graph  && params.graph[0].graph_id == 1'>
+                    <app-line-graph [dataYaxis]='lineChartData[i]' [dataXaxis]='filterArray[i].data'></app-line-graph>
+                </div>
+                <div *ngIf='params.graph  && params.graph[0].graph_id == 2'>
+                    <app-bar-graph [barGraph]='lineChartData[i]'[labels]='filterArray[i].data' ></app-bar-graph>
+                </div>
+                <!-- <div *ngIf='params.graph  && params.graph[0].graph_id == 3 && showBar'>
+                    <app-gauge-graph [gaugeData]='barGraphData[i]' ></app-gauge-graph>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+

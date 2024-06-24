@@ -1,0 +1,17 @@
+<ul *ngFor="let childrens of device_hierarchy | keyvalue; let i=index">
+    <li>     
+        <a *ngIf="childrens.value.childrens; else withoutChildrens">
+            <i class="link-icon tree-icon" data-feather="chevron-right"></i>
+            <span>{{ childrens.value.name }}</span>
+
+            <zainergy-control-panel-recursive [device_hierarchy]="childrens.value.childrens"></zainergy-control-panel-recursive>
+
+        </a>
+
+        <ng-template #withoutChildrens>
+            <a href="javascript:void(0);" >
+                {{ childrens.value.name }}
+            </a>
+        </ng-template>
+    </li>
+</ul>

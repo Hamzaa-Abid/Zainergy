@@ -1,0 +1,19 @@
+<cdk-virtual-scroll-viewport [itemSize]="220"  style="height: 200px; width: 1050px;">
+<div class="row justify-content-center mb-4 flex-row ">
+    <div class="col-lg-3 widget" *ngFor='let params of paramDetail; let i = index'>
+        <div class="card fun-blue-bg">
+            <div class="card-body">
+                <!-- <app-water-tank [data]="tankData"></app-water-tank> -->
+                <div class="d-flex justify-content-between">
+                    <div class="mr-3 align-self-center"><img src="./assets/media/icons/temperature.svg">
+                    </div>
+                    <div class="align-self-center">
+                        <h6 class="text-midnight mt-2 mb-3">{{ params.description }}</h6>
+                        <h2 class="text-downy">{{ (deviceInfo ? deviceInfo[i] : '') | number:'1.0':'en-US' }}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</cdk-virtual-scroll-viewport>

@@ -1,0 +1,331 @@
+<div class="row">
+    <div class="col-md-12 pt-4 mt-3">
+        <h2 class="text-midnight font-weight-bold">Dashboard</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-2 widget">
+        <div class="card fun-blue-bg">
+            <div class="card-body">
+                <div class="align-self-center">
+                    <h6 class="text-midnight mt-2 mb-3">Country</h6>
+                </div>
+                <div>
+                    <select class="custom-select">
+                        <option>Pakistan</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 widget">
+        <div class="card fun-blue-bg">
+            <div class="card-body">
+                <div class="align-self-center">
+                    <h6 class="text-midnight mt-2 mb-3">State</h6>
+                </div>
+                <div>
+                    <select class="custom-select">
+                        <option>Sindh</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 widget">
+        <div class="card fun-blue-bg">
+            <div class="card-body">
+                <div class="align-self-center">
+                    <h6 class="text-midnight mt-2 mb-3">City</h6>
+                </div>
+                <div>
+                    <select class="custom-select">
+                        <option>Karachi</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 widget">
+        <div class="card fun-blue-bg">
+            <div class="card-body">
+                <div class="align-self-center">
+                    <h6 class="text-midnight mt-2 mb-3">Zone</h6>
+                </div>
+                <div>
+                    <select class="custom-select">
+                        <option>44kw</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 widget">
+        <div class="card fun-blue-bg">
+            <div class="card-body">
+                <div class="align-self-center">
+                    <h6 class="text-midnight mt-2 mb-3">Location</h6>
+                </div>
+                <div>
+                    <select class="custom-select">
+                        <option>Gulshan</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 widget">
+        <div class="card fun-blue-bg">
+            <div class="card-body">
+                <div class="align-self-center">
+                    <h6 class="text-midnight mt-2 mb-3">Transformer</h6>
+                </div>
+                <div>
+                    <select class="custom-select">
+                        <option>44kw</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row mt-3 mb-4"></div>
+<!-- <div class="row">
+    <div class="col-lg-3 widget">
+        <div class="card fun-blue-bg">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div class="mr-3 align-self-center"><img src="./assets/media/icons/temperature.svg"
+                            alt="temperature">
+                    </div>
+                    <div class="align-self-center">
+                        <h6 class="text-white mt-2 mb-3">Temperature</h6>
+                        <h2 class="text-downy">44°C </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 widget">
+        <div class="card fun-blue-bg">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div class="mr-3 align-self-center"><img src="./assets/media/icons/humidity.svg" alt="humidity">
+                    </div>
+                    <div class="align-self-center">
+                        <h6 class="text-white mt-2 mb-3">Humidity</h6>
+                        <h2 class="text-downy">67%</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 widget">
+        <div class="card fun-blue-bg">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div class="mr-3 align-self-center"><img src="./assets/media/icons/TVOC.svg" alt="TVOC"></div>
+                    <div class="align-self-center">
+                        <h6 class="text-white mt-2 mb-3">TVOC</h6>
+                        <h2 class="text-downy">40 PPM</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 widget">
+        <div class="card fun-blue-bg">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div class="mr-3 align-self-center"><img src="./assets/media/icons/devices.svg" alt="battery">
+                    </div>
+                    <div class="align-self-center">
+                        <h6 class="text-white mt-2 mb-3">No Of Devices</h6>
+                        <h2 class="text-downy">3</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div *ngIf=getMap class="row mt-3 mb-4">
+    <div id="map" class="col-lg-12 col-xl-12">
+        <div class="map">
+            <google-map height="500px" width="`1000px" [center]="center" [zoom]="zoom">
+                <map-marker #marker="mapMarker" *ngFor="let marker of markers" [position]="marker"
+                    [options]="markerOptions">
+                </map-marker>
+            </google-map>
+        </div>
+    </div>
+</div>
+
+<div>
+
+    <div class="row mt-2 db-chart" id='device1'>
+        <div id="parent1" class="col-lg-6 col-xl-6">
+            <div class="chart-card fun-blue-bg mb-4">
+                <div class="chart-title" id="text1">
+                    <p class="mb-0">TEMPRATURE </p>
+                    <button class="full-screen-btn"><img src="./assets/media/icons/expand.svg"></button>
+                    <!-- <button class="full-screen-btn"><img src="./assets/media/icons/minimize.svg"></button> -->
+                    <div ngbDropdown container="body" class="d-inline-block" placement="bottom-right">
+                        <button tabindex="0" class="btn" id="cost-predicted" ngbDropdownToggle><img
+                                src="./assets/media/icons/droplist.svg" alt="more"></button>
+                        <div ngbDropdownMenu aria-labelledby="cost-predicted" class="dropdown-menu-right">
+                            <button ngbDropdownItem><img src="./assets/media/icons/csv.svg" class="mr-2"
+                                    alt="CSV" />Export as
+                                CSV</button>
+                            <div class="dropdown-divider"></div>
+                            <button ngbDropdownItem><img src="./assets/media/icons/pdf.svg" class="mr-2"
+                                    alt="CSV" />Export as
+                                PDF</button>
+                            <div class="dropdown-divider"></div>
+                            <button ngbDropdownItem><img src="./assets/media/icons/print.svg" class="mr-2"
+                                    alt="CSV" />Print</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart" style="padding-right: 10px; padding-top: 10px;">
+                    <!-- <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+                        [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="'line'"
+                        [plugins]="lineChartPlugins" height="300">
+                    </canvas> -->
+
+                </div>
+            </div>
+        </div>
+        <div id="parent2" class="col-lg-6 col-xl-6">
+            <div class="chart-card fun-blue-bg mb-4">
+                <div class="chart-title" id="text1">
+                    <p class="mb-0">HUMIDITY </p>
+                    <button class="full-screen-btn"><img src="./assets/media/icons/expand.svg"></button>
+                    <!-- <button class="full-screen-btn"><img src="./assets/media/icons/minimize.svg"></button> -->
+                    <div ngbDropdown container="body" class="d-inline-block" placement="bottom-right">
+                        <button tabindex="0" class="btn" id="cost-predicted" ngbDropdownToggle><img
+                                src="./assets/media/icons/droplist.svg" alt="more"></button>
+                        <div ngbDropdownMenu aria-labelledby="cost-predicted" class="dropdown-menu-right">
+                            <button ngbDropdownItem><img src="./assets/media/icons/csv.svg" class="mr-2"
+                                    alt="CSV" />Export as
+                                CSV</button>
+                            <div class="dropdown-divider"></div>
+                            <button ngbDropdownItem><img src="./assets/media/icons/pdf.svg" class="mr-2"
+                                    alt="CSV" />Export as
+                                PDF</button>
+                            <div class="dropdown-divider"></div>
+                            <button ngbDropdownItem><img src="./assets/media/icons/print.svg" class="mr-2"
+                                    alt="CSV" />Print</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart" style="padding-right: 10px; padding-top: 10px;">
+                    <!-- <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+                        [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="'bar'"
+                        [plugins]="lineChartPlugins" height="300">
+                    </canvas> -->
+
+                </div>
+            </div>
+        </div>
+        <div id="parent3" class="col-lg-6 col-xl-6">
+            <div class="chart-card fun-blue-bg mb-4">
+                <div class="chart-title" id="text1">
+                    <p class="mb-0">TEMPRATURE/HUMIDTY </p>
+                    <button class="full-screen-btn"><img src="./assets/media/icons/expand.svg"></button>
+                    <!-- <button class="full-screen-btn"><img src="./assets/media/icons/minimize.svg"></button> -->
+                    <div ngbDropdown container="body" class="d-inline-block" placement="bottom-right">
+                        <button tabindex="0" class="btn" id="cost-predicted" ngbDropdownToggle><img
+                                src="./assets/media/icons/droplist.svg" alt="more"></button>
+                        <div ngbDropdownMenu aria-labelledby="cost-predicted" class="dropdown-menu-right">
+                            <button ngbDropdownItem><img src="./assets/media/icons/csv.svg" class="mr-2"
+                                    alt="CSV" />Export as
+                                CSV</button>
+                            <div class="dropdown-divider"></div>
+                            <button ngbDropdownItem><img src="./assets/media/icons/pdf.svg" class="mr-2"
+                                    alt="CSV" />Export as
+                                PDF</button>
+                            <div class="dropdown-divider"></div>
+                            <button ngbDropdownItem><img src="./assets/media/icons/print.svg" class="mr-2"
+                                    alt="CSV" />Print</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart" style="padding-right: 10px; padding-top: 10px;">
+                    <!-- <canvas baseChart [datasets]="comparisionData" [labels]="lineChartLabels"
+                        [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend"
+                        [chartType]="'line'" [plugins]="lineChartPlugins" height="300">
+                    </canvas> -->
+
+                </div>
+            </div>
+        </div>
+        <div id="parent4" class="col-lg-6 col-xl-6">
+            <div class="chart-card fun-blue-bg mb-4">
+                <div class="chart-title" id="text1">
+                    <p class="mb-0">ENERGY </p>
+                    <button class="full-screen-btn"><img src="./assets/media/icons/expand.svg"></button>
+                    <!-- <button class="full-screen-btn"><img src="./assets/media/icons/minimize.svg"></button> -->
+                    <div ngbDropdown container="body" class="d-inline-block" placement="bottom-right">
+                        <button tabindex="0" class="btn" id="cost-predicted" ngbDropdownToggle><img
+                                src="./assets/media/icons/droplist.svg" alt="more"></button>
+                        <div ngbDropdownMenu aria-labelledby="cost-predicted" class="dropdown-menu-right">
+                            <button ngbDropdownItem><img src="./assets/media/icons/csv.svg" class="mr-2"
+                                    alt="CSV" />Export as
+                                CSV</button>
+                            <div class="dropdown-divider"></div>
+                            <button ngbDropdownItem><img src="./assets/media/icons/pdf.svg" class="mr-2"
+                                    alt="CSV" />Export as
+                                PDF</button>
+                            <div class="dropdown-divider"></div>
+                            <button ngbDropdownItem><img src="./assets/media/icons/print.svg" class="mr-2"
+                                    alt="CSV" />Print</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart" style="padding-right: 10px; padding-top: 10px;">
+                    <!-- <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+                        [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="'pie'"
+                        [plugins]="lineChartPlugins" height="300">
+                    </canvas> -->
+                </div>
+            </div>
+        </div>
+        <div id="parent5" class="col-lg-6 col-xl-6">
+            <div class="chart-card fun-blue-bg mb-4">
+                <div class="chart-title" id="text1">
+                    <p class="mb-0">DHT11 vs DHT12 </p>
+                    <button class="full-screen-btn"><img src="./assets/media/icons/expand.svg"></button>
+                    <!-- <button class="full-screen-btn"><img src="./assets/media/icons/minimize.svg"></button> -->
+                    <div ngbDropdown container="body" class="d-inline-block" placement="bottom-right">
+                        <button tabindex="0" class="btn" id="cost-predicted" ngbDropdownToggle><img
+                                src="./assets/media/icons/droplist.svg" alt="more"></button>
+                        <div ngbDropdownMenu aria-labelledby="cost-predicted" class="dropdown-menu-right">
+                            <button ngbDropdownItem><img src="./assets/media/icons/csv.svg" class="mr-2"
+                                    alt="CSV" />Export as
+                                CSV</button>
+                            <div class="dropdown-divider"></div>
+                            <button ngbDropdownItem><img src="./assets/media/icons/pdf.svg" class="mr-2"
+                                    alt="CSV" />Export as
+                                PDF</button>
+                            <div class="dropdown-divider"></div>
+                            <button ngbDropdownItem><img src="./assets/media/icons/print.svg" class="mr-2"
+                                    alt="CSV" />Print</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart" style="padding-right: 10px; padding-top: 10px;">
+                    <!-- <canvas baseChart [datasets]="labeldata" [labels]="combinedLabel" [options]="lineChartOptions"
+                        [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="'line'"
+                        [plugins]="lineChartPlugins" height="300">
+                    </canvas> -->
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

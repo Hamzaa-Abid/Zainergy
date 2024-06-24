@@ -1,0 +1,74 @@
+<!-- partial:partials/_sidebar.html -->
+<nav class="sidebar">
+
+    <div class="sidebar-header">
+        <a href="#" class="sidebar-brand">
+            <img width="130" src="{{ main_logo }}">
+        </a>
+        <div class="sidebar-toggler not-active">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <div class="sidebar-body">
+
+        <!-- <ul class="nav">
+            <zainergy-recursive-sidebar-menu [sidebar_menu_hierarchy]="sidebar_menu_hierarchy">
+            </zainergy-recursive-sidebar-menu>
+        </ul> -->
+
+        <ul class="nav">
+            <li *ngFor="let menu of menu_list" class="nav-item" [ngClass]="{'active': active_menu == menu.key}" (click)="activeMenuClass(menu.key)">
+                <a *ngIf="menu.childrens; else withoutChildrens" class="nav-link" data-toggle="collapse" href="#{{ menu.key }}" role="button" aria-expanded="false"
+                    [attr.aria-controls]="menu.name">
+                    <i class="link-icon" [attr.data-feather]="menu.icon"></i>
+                    <span class="link-title">{{ menu.name }}</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+
+                <ng-template #withoutChildrens>
+                    <a href="javascript:void(0);" [routerLink]="menu.url" class="nav-link">
+                        <i class="link-icon" [attr.data-feather]="menu.icon"></i>
+                        <span class="link-title">{{ menu.name }}</span>
+                    </a>
+                </ng-template>
+                
+                <div *ngIf="menu.childrens" class="collapse show" id="{{ menu.key }}">
+                    <ul class="nav sub-menu">
+
+                        <li *ngFor="let children of menu.childrens" class="nav-item">
+
+                            <a *ngIf="children.childrens; else withoutChild" class="nav-link" data-toggle="collapse" href="#{{ children.key }}" role="button" aria-expanded="false"
+                                [attr.aria-controls]="children.name">
+                                <!-- <i class="link-icon" [attr.data-feather]="children.icon"></i> -->
+                                <span>{{ children.name }}</span>
+                                <i class="link-arrow" data-feather="chevron-down"></i>
+                            </a>
+
+                            <ng-template #withoutChild>
+                                <a href="javascript:void(0);" [routerLink]="children.url" class="nav-link">
+                                    <span>{{ children.name }}</span>
+                                </a>
+                            </ng-template>
+
+                            <div *ngIf="children.childrens" class="collapse show" id="{{ children.key }}">
+                                <ul class="nav sub-menu">
+                                    <li *ngFor="let child of children.childrens" class="nav-item">
+                                        <a href="javascript:void(0);" [routerLink]="child.url" class="nav-link">{{ child.name }}</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </li>          
+
+                    </ul>
+
+                </div>                
+                
+            </li>
+        </ul>
+    </div>
+
+</nav>

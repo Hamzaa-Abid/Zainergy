@@ -1,0 +1,208 @@
+<ngb-tabset #t="ngbTabset">
+
+    <ngb-tab id="Graph" title="Graph">
+        <ng-template ngbTabContent>
+
+            <!-- <zainergy-dashboard-cards></zainergy-dashboard-cards> -->
+
+            <div class="row">
+
+                <div class="col-md-12 col-xl-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="d-flex justify-content-between card-header align-items-center mb-4 mb-md-3">
+                            <h6 class="card-title mb-0 ">Total Energy Consumption</h6>
+
+                            <div class="header-right d-flex">
+                                <i class="active icon-lg card-header-icon  mr-2 pb-3px" data-feather="trending-up"></i>
+                                <span class="divider"></span>
+                                <i class="icon-lg card-header-icon ml-2 pb-3px" data-feather="bar-chart-2"></i>
+                                <i class="icon-lg card-header-icon ml-4 pb-3px maximize-card"
+                                    data-feather="maximize-2"></i>
+                                <i class="icon-lg card-header-icon ml-4 pb-3px minimize-card"
+                                    data-feather="minimize-2"></i>
+
+                                <div class="dropdown ml-2">
+                                    <button class="btn p-0" type="button" id="dropdownMenuButton3"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="icon-lg pb-3px card-header-icon" data-feather="more-vertical"></i>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                                        <a class="dropdown-item d-flex align-items-center" href="#"><i
+                                                data-feather="printer" class="icon-sm mr-2"></i> <span
+                                                class="">Print</span></a>
+                                        <a class="dropdown-item d-flex align-items-center" href="#"><i
+                                                data-feather="download" class="icon-sm mr-2"></i> <span
+                                                class="">Download</span></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="card-body">
+
+                            <div class="row align-items-start mb-2">
+
+                                <!-- <div class="col-md-5 d-flex justify-content-md-end">
+                <div class="btn-group mb-3 mb-md-0" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-outline-primary">Today</button>
+                    <button type="button" class="btn btn-outline-primary d-none d-md-block">Week</button>
+                    <button type="button" class="btn btn-primary">Month</button>
+                    <button type="button" class="btn btn-outline-primary">Year</button>
+                </div>
+                </div> -->
+                            </div>
+                            <div class="flot-wrapper">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 col-xl-4 col-lg-4 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="d-flex justify-content-between card-header align-items-center mb-4 mb-md-3">
+                            <h6 class="card-title mb-0">Energy Consumption</h6>
+
+                            <div class="header-right d-flex">
+                                <i class="active icon-lg card-header-icon  mr-2 pb-3px" data-feather="trending-up"></i>
+                                <span class="divider"></span>
+                                <i class="icon-lg card-header-icon ml-2 pb-3px" data-feather="bar-chart-2"></i>
+                                <i class="icon-lg card-header-icon ml-4 maximize-card pb-3px"
+                                    data-feather="maximize-2"></i>
+                                <i class="icon-lg card-header-icon ml-4 pb-3px minimize-card"
+                                    data-feather="minimize-2"></i>
+
+                                <div class="dropdown ml-2">
+                                    <button class="btn p-0" type="button" id="dropdownMenuButton3"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="icon-lg pb-3px card-header-icon" data-feather="more-vertical"></i>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                                        <a class="dropdown-item d-flex align-items-center" href="#"><i
+                                                data-feather="printer" class="icon-sm mr-2"></i> <span
+                                                class="">Print</span></a>
+                                        <a class="dropdown-item d-flex align-items-center" href="#"><i
+                                                data-feather="download" class="icon-sm mr-2"></i> <span
+                                                class="">Download</span></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="card-body">
+
+                            <div class="row align-items-start mb-2">
+
+
+                            </div>
+                            <div class="flot-wrapper">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 col-xl-4 col-lg-4 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="d-flex justify-content-between card-header align-items-center mb-4 mb-md-3">
+                            <h6 class="card-title mb-0">Energy Consumption</h6>
+
+                            <div class="header-right d-flex">
+                                <i class="active icon-lg card-header-icon  mr-2 pb-3px" data-feather="trending-up"></i>
+                                <span class="divider"></span>
+                                <i class="icon-lg card-header-icon ml-2 pb-3px" data-feather="bar-chart-2"></i>
+                                <i class="icon-lg card-header-icon ml-4 pb-3px maximize-card"
+                                    data-feather="maximize-2"></i>
+                                <i class="icon-lg card-header-icon ml-4 pb-3px minimize-card"
+                                    data-feather="minimize-2"></i>
+
+                                <div class="dropdown ml-2">
+                                    <button class="btn p-0" type="button" id="dropdownMenuButton3"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="icon-lg pb-3px card-header-icon" data-feather="more-vertical"></i>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                                        <a class="dropdown-item d-flex align-items-center" href="#">
+                                            <i data-feather="printer" class="icon-sm mr-2"></i> <span class="">Print</span>
+                                        </a>
+                                        <a class="dropdown-item d-flex align-items-center" href="#">
+                                            <i data-feather="download" class="icon-sm mr-2"></i> <span class="">Download</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="card-body">
+
+                            <div class="row align-items-start mb-2">
+
+                                <!-- <div class="col-md-5 d-flex justify-content-md-end">
+                <div class="btn-group mb-3 mb-md-0" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-outline-primary">Today</button>
+                    <button type="button" class="btn btn-outline-primary d-none d-md-block">Week</button>
+                    <button type="button" class="btn btn-primary">Month</button>
+                    <button type="button" class="btn btn-outline-primary">Year</button>
+                </div>
+                </div> -->
+                            </div>
+                            <div class="flot-wrapper">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 col-xl-4 col-lg-4 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="d-flex justify-content-between card-header align-items-center mb-4 mb-md-3">
+                            <h6 class="card-title mb-0">Energy Consumption</h6>
+
+                            <div class="header-right d-flex">
+                                <i class="active icon-lg card-header-icon  mr-2 pb-3px" data-feather="trending-up"></i>
+                                <span class="divider"></span>
+                                <i class="icon-lg card-header-icon ml-2 pb-3px" data-feather="bar-chart-2"></i>
+                                <i class="icon-lg card-header-icon ml-4 pb-3px maximize-card"
+                                    data-feather="maximize-2"></i>
+                                <i class="icon-lg card-header-icon ml-4 pb-3px minimize-card"
+                                    data-feather="minimize-2"></i>
+                                <div class="dropdown ml-2">
+                                    <button class="btn p-0" type="button" id="dropdownMenuButton3"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="icon-lg pb-3px card-header-icon" data-feather="more-vertical"></i>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                                        <a class="dropdown-item d-flex align-items-center" href="#"><i
+                                                data-feather="printer" class="icon-sm mr-2"></i> <span
+                                                class="">Print</span></a>
+                                        <a class="dropdown-item d-flex align-items-center" href="#"><i
+                                                data-feather="download" class="icon-sm mr-2"></i> <span
+                                                class="">Download</span></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="card-body">
+
+                            <div class="row align-items-start mb-2">
+
+                            </div>
+                            <div class="flot-wrapper">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> 
+        </ng-template>
+    </ngb-tab>
+
+    <ngb-tab id="Cost" title="Cost">
+        <ng-template ngbTabContent>
+        </ng-template>
+    </ngb-tab> 
+
+    <ngb-tab id="Table" title="Table">
+        <ng-template ngbTabContent>
+        </ng-template>
+    </ngb-tab> 
+
+</ngb-tabset>

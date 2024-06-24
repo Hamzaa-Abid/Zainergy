@@ -1,0 +1,18 @@
+<div class="row">
+        <div class="col-md-12 mt-2 form-group mx-2">
+            <a class="back-btn text-midnight" href="javascript:void(0);" [routerLink]="['/devices']"><img class="back-icon"
+                    src="./assets/media/icons/back-arrow.svg" />Back</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 pt-4 mt-3">
+            <h2 class="text-midnight font-weight-bold position-relative pl-3"><span [ngClass]="[ deviceStatus[0] == true ? 'device_status device-status-active' : deviceStatus[0] == false ? 'device_status device-status-inactive' : 'device_status device-status-notfound']"></span>{{ deviceDetail.device_name }} ( {{deviceDetail?.location}} )</h2>
+        </div>
+    </div>
+
+    <app-filters *ngIf="showComponent" [status]='deviceStatus'></app-filters>
+    <app-indivicual-card [data]="deviceInfo" *ngIf="showComponent"></app-indivicual-card>
+    <app-water-tank *ngIf="showWaterTank" [data]="tankData"></app-water-tank>
+    <div *ngIf='showGraph && deviceStatus && deviceStatus.length > 0' style="margin-top: 40px !important;" >
+        <app-dht-graph [stats]='latestStats'  [lineGraph]='lineGraphArray' *ngIf="showComponent"></app-dht-graph>
+    </div>

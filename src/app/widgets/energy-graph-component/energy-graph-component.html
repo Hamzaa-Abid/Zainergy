@@ -1,0 +1,30 @@
+<div class="row mt-3 db-chart" id='graphGeneric'>
+    <div class="col-lg-4 mb-4 widget">
+        <div class="card fun-blue-bg">
+            <div class="card-body">
+                <div class="d-flex">
+                    <div class="bar-chart" *ngFor='let params of labelData ;let i = index'>
+                        <!-- <canvas *ngIf="params.label == 'voltage' && params.data.length > 0" baseChart [datasets]="[params]"
+                            [options]="voltageChartOptions" [colors]="lineChartColors" width="100"
+                            [legend]="lineChartLegend" [chartType]="'bar'" height="300">
+                        </canvas>
+                        <canvas *ngIf="params.label == 'frequency'  && params.data.length > 0" baseChart [datasets]="[params]"
+                            [options]="frequencyChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend"
+                            [chartType]="'bar'" height="300" width="100">
+                        </canvas> -->
+                    </div>
+
+                    <div class="circle-chart">
+                        <!-- <mwl-gauge *ngIf="showGauge" [max]="100" [dialStartAngle]="-90" [dialEndAngle]="-90.001"
+                            [value]="current" [animated]="true" [animationDuration]="1" [label]="getCurrentLabel">
+                        </mwl-gauge>
+                        <mwl-gauge *ngIf="showGauge" [max]="100" [dialStartAngle]="-90" [dialEndAngle]="-90.001"
+                            [value]="power" [animated]="true" [animationDuration]="1" [label]="getPowerLabel">
+                        </mwl-gauge> -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

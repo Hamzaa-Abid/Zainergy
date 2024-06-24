@@ -1,0 +1,193 @@
+<ngb-tabset #t="ngbTabset">
+
+  <ngb-tab id="device-status" title="Device Status">
+    <ng-template ngbTabContent>
+      <div class="row mt-4">
+        <div class="col-lg-4 col-xl-4 stretch-card">
+          <div class="row flex-grow">
+            <div class="col-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-8 col-md-12 col-xl-8">
+                      <h3 class="mb-0">3,897</h3>
+                    </div>
+                    <div class="col-4 col-md-12 col-xl-4">
+                      <div id="apexChart1" class="mt-md-3 mt-xl-0"></div>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-baseline">
+                    <h6 class="card-title mb-0 mt-2 echo-blue-text">No. of Devices</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-8 col-md-12 col-xl-8">
+                      <h3 class="mb-0">3,897</h3>
+                    </div>
+                    <div class="col-4 col-md-12 col-xl-4">
+                      <div id="apexChart1" class="mt-md-3 mt-xl-0"></div>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-baseline">
+                    <h6 class="card-title mb-0 mt-2 echo-blue-text">Active Devices</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-8 col-md-12 col-xl-8">
+                      <h3 class="mb-0">3,897</h3>
+                    </div>
+                    <div class="col-4 col-md-12 col-xl-4">
+                      <div id="apexChart1" class="mt-md-3 mt-xl-0"></div>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-baseline">
+                    <h6 class="card-title mb-0 mt-2 echo-blue-text">Alert Devices</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8 col-xl-8 stretch-card">
+          <div class="row flex-grow">
+            <div class="col grid-margin stretch-card">
+              <div class="card">
+                <div class="d-flex justify-content-between card-header align-items-center mb-4 mb-md-3">
+                  <h6 class="card-title mb-0 ">Recent Device Activities</h6>
+                </div>
+                <div class="card-body">
+
+                  <div class="row">
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- row -->
+
+    </ng-template>
+  </ngb-tab>
+
+  <ngb-tab id="memory-status" title="Memory Status">
+    <ng-template ngbTabContent>
+      <div class="row mt-4">
+        <div class="col-lg-4 col-xl-4 stretch-card">
+          <div class="row flex-grow">
+            <div class="col-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body d-flex justify-content-center flex-column">
+                  <div class="row">
+                    <div class="col-12 col-md-12 col-xl-8">
+                      <h3 class="mb-0">10 GB</h3>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-baseline">
+                    <h6 class="card-title mb-0 mt-2 echo-blue-text">Allowed Disk Space</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body d-flex justify-content-center flex-column">
+                  <div class="row">
+                    <div class="col-12 col-md-12 col-xl-8">
+                      <h3 class="mb-0">03.3/10 GB</h3>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-baseline">
+                    <h6 class="card-title mb-0 mt-2 echo-blue-text">Usage Disk Space</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8 col-xl-8 stretch-card">
+          <div class="row flex-grow">
+
+            <div class="col grid-margin stretch-card">
+              <div class="card">
+                <div class="d-flex justify-content-between card-header align-items-center mb-4 mb-md-3">
+                  <h6 class="card-title mb-0 ">Archive data</h6>
+                </div>
+                <div class="card-body">
+                  <form class="">
+                    <div class="row">
+                      <div class="col-sm-3">
+
+                        <div class="form-group">
+                          <label for="duration-start">Start Duration</label>
+                          <input type="date" class="form-control" id="duration-start" autocomplete="off">
+                        </div>
+                      </div><!-- Col -->
+                      <div class="col-sm-3">
+
+                        <div class="form-group">
+                          <label for="duration-end">End Duration</label>
+                          <input type="date" class="form-control" id="duration-end" autocomplete="off">
+                        </div>
+                      </div><!-- Col -->
+                      <div class="col-sm-3">
+                        <div class="form-group">
+                          <label>Type</label>
+                          <select class="" name="type">
+                            <option value="type-1">type 1</option>
+                            <option value="type-2">type 2</option>
+                          </select>
+                        </div>
+                      </div><!-- Col -->
+
+                      <div class="col-sm-3 mb-3 d-flex align-self-end">
+                        <div class="form-group w-100 mb-0">
+                          <button type="submit" class="btn theme-primary-btn">Start Download</button>
+                        </div>
+                      </div><!-- Col -->
+                    </div>
+                  </form>
+
+                  <div class="download-history mt-4 mb-3">
+                    <h6 class="mb-3">Download History</h6>
+                    <div class="table-responsive">
+                      <table class="table">
+                        <tbody>
+                          <tr>
+                            <td>Date : <span>11-10-2020</span></td>
+                            <td class="text-right">file size : <span>50 mb</span></td>
+                          </tr>
+                          <tr>
+                            <td>Date : <span>02-10-2020</span></td>
+                            <td class="text-right">file size : <span>250 mb</span></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- row -->
+    </ng-template>
+  </ngb-tab>
+
+  <ngb-tab id="Internet-quality" title="Internet Quality">
+    <ng-template ngbTabContent>
+    </ng-template>
+  </ngb-tab>
+
+</ngb-tabset>

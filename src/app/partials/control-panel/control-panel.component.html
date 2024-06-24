@@ -1,0 +1,59 @@
+<div *ngIf="show_panel">
+    <nav id="sidebar" class="control-panel">
+        <button class="btn manage-job-btn" id="sidebarCollapse" type="button">
+            <i></i>
+        </button>
+
+        <div class="control-panel-title">
+            <h6 class="mt-4">Control Panel for Single Device</h6>
+        </div>
+
+        <div class="control-panel-tree">
+
+            <zainergy-recursive-control-panel [device_hierarchy]="device_hierarchy"></zainergy-recursive-control-panel>
+
+        </div>
+
+        <div class="control-panel-info">
+            <div class="info-row">
+                <h6>Location :</h6>
+                <p>{{ location }}</p>                
+            </div>
+            <div class="info-row">
+                <h6>Category :</h6>
+                <p>{{ category }}</p>                
+            </div>
+            <div class="info-row">
+                <h6>Type :</h6>
+                <p>{{ type }}</p>                
+            </div>
+            <div class="info-row">
+                <h6>Device ID :</h6>
+                <p>{{ id }}</p>
+            </div>
+            <div class="info-row">
+                <h6>Device Status :</h6>
+                <!-- class="device-status device-default" -->
+                <p><span>N/A</span></p>
+            </div>
+
+            <div class="info-row">
+                <h6>Interval (x-axis)</h6>
+                <p>Dropdown</p>
+            </div>
+
+            <div class="info-row">
+                <h6>Parameter</h6>
+                <p>Dropdown</p>
+            </div>
+
+            <div class="control-panel-btn">
+                <button class="btn mt-3 theme-primary-btn">Apply Setting</button>
+            </div>
+            <div class="control-panel-btn">
+                <button class="btn mt-2 theme-secondary-btn">Favourite</button>
+            </div>
+
+        </div>
+    </nav>
+</div>

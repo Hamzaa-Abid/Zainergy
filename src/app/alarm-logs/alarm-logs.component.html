@@ -1,0 +1,45 @@
+<ngb-tabset #t="ngbTabset">
+
+  <ngb-tab id="alarm-logs" title="Alarm Logs">
+    <ng-template ngbTabContent>
+      <div class="row mt-4">
+
+        <div class="col-lg-12 col-xl-12 stretch-card">
+          <div class="row flex-grow">
+
+            <div class="col grid-margin stretch-card">
+              <div class="card">
+                <div class="d-flex justify-content-between card-header align-items-center mb-4 mb-md-3">
+                  <h6 class="card-title mb-0 ">Alarm Logs</h6>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th width="20%">emails</th>
+                          <th width="30%">device</th>
+                          <th width="30%">message</th>
+                          <th width="20%">parameter value</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>test@zainergy.com</td>
+                          <td>Plot#49 > Hording Lighting</td>
+                          <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+                          <td>parameter value</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- row -->
+    </ng-template>
+  </ngb-tab>
+
+</ngb-tabset>

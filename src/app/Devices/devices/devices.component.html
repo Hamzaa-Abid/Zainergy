@@ -1,0 +1,70 @@
+<div class="row">
+  <div class="col-md-12 pt-4 mt-3">
+    <h2 class="text-midnight font-weight-bold">Devices</h2>
+  </div>
+</div>
+
+<div class="row mt-3 mb-5">
+  <div class="col-lg-3 col-md-12">
+  </div>
+  <div class="col-lg-9 col-md-12 d-flex justify-content-end filters">
+    <div class="select-filter mx-1">
+      <div class="select-filter mx-1">
+        <img src="./assets/media/icons/filter.svg" class="select-filter">
+  
+        <select class="mr-2 custom-select" [(ngModel)]="selectedSimilarDevice" (ngModelChange)="getSimilarDevice()"  style="min-width: 180px;">
+          <option>All</option>
+          <option *ngFor="let device of deviceFilter" >{{ device }}</option>
+        </select>
+  
+  
+      </div>
+      <img src="./assets/media/icons/filter.svg" class="select-filter">
+
+      <select class="mr-2 custom-select" [(ngModel)]="deviceSelected" (ngModelChange)="getSelectedDevice()" style="min-width: 180px;">
+        <option>All</option>
+        <option *ngFor="let category of device_categories" value="{{ category.id }}">{{ category.value }}</option>
+      </select>
+
+
+    </div>
+
+  </div>
+</div>
+
+<div class="row" *ngIf='showCard'>
+  <div class="col-lg-3 mb-4 widget" *ngFor='let devices of deviceArray'>
+    <div class="card fun-blue-bg">
+      <div class="card-body py-2">
+        <div [ngClass]="[ devices.isActive == true ? 'device-status device-status-active' : devices.isActive == false ? 'device-status device-status-inactive' : 'device-status device-status-notfound']"></div>
+        <!-- <section [ngClass]="[menu1 ? 'class1' : '',  menu2 ? 'class1' : '', (something && (menu1 || menu2)) ? 'class2' : '']"></section> -->
+        <div class="d-flex device-card-title justify-content-between align-items-center pb-3 pt-2 mb-3">
+          <h5 class="text-midnight mb-0"><a href="javascript:void(0);"
+              [routerLink]="(['/device', devices?.device_id])">
+              {{devices?.device_name}}</a></h5>
+          <a href="javascript:void(0);" [routerLink]="(['/device', devices?.device_id])" class="btn device-view-btn">View</a>
+        </div>
+        <span class="device-card">
+          <p class="label-text">Location</p>
+          <h6 class="text-midnight mt-2 mb-2">{{devices?.location}}</h6>
+          <hr />
+        </span>
+        <span class="device-card">
+          <p class="label-text">Category</p>
+          <h6 class="text-midnight mt-2 mb-2">{{ devices?.device_category == 1 ? 'Sensor': devices?.device_category == 2 ? 'Meter' : '' }}</h6>
+          <p class="label-text">Type</p>
+          <h6 class="text-midnight mt-2 mb-2">{{ devices?.device_type }}</h6>
+          <hr />
+        </span>
+
+        <div class="scroll-data " style="min-height: 80px; max-height: 80px;">
+          <span class="device-card">
+            <p class="label-text">Parameters</p>
+            <h6 class="text-midnight mt-2 mb-2" *ngFor='let params of devices.parameters'>{{params?.description}}</h6>
+          </span>
+        </div>
+      
+      </div>
+    </div>
+  </div>
+</div>

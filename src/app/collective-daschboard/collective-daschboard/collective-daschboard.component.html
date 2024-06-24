@@ -1,0 +1,14 @@
+<div *ngIf='showUser'>
+    <app-flter-collective></app-flter-collective>
+</div>
+
+<div *ngIf='this.lineChartArray.length > 0'>
+<div class="row">
+    <div class="col-lg-6 collective-card" *ngFor='let data of lineChartArray;let i = index'>
+        <div class="card">
+            <div class="card-body"></div>
+            <app-dht-graph [lineGraph]="data" [params]='graphParam'></app-dht-graph>
+        </div>
+    </div>
+</div>
+</div>

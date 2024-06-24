@@ -1,0 +1,50 @@
+<div class="container-login">
+  <div class="wrap-login">
+    <div class="login-right-side">
+      <form class="login-form validate-form">
+        <div class="login-form-title font-weight-bold">
+          Login
+          <span class="">
+            Enter your details below
+          </span>
+        </div>
+        <div class="form-group">
+          <label for="email" class="text-midnight">Email</label>
+          <input type="email" [ngClass]="{'val-border': emailPrompt || showError}" class="form-control" id="email"
+            [(ngModel)]="emailId" name="email">
+          <small class="error" *ngIf="emailPrompt"> Email is Required!</small>
+        </div>
+        <div class="form-group">
+          <label for="pwd" class="text-midnight">Password</label>
+          <input type="password" [ngClass]="{'val-border': passwordPrompt || showError}" class="form-control" id="pwd"
+            [(ngModel)]="password" name="password">
+          <small class="error" *ngIf="passwordPrompt"> Password is Required!</small>
+        </div>
+        <i class="error" *ngIf="showError">Invalid Username or Password!</i>
+
+        <div class="mb-4 mt-2 d-block">
+          <div class="forgot-password mb-4 d-inline-block">
+            <!-- <a href="javascript:void(0);" class="text-midnight">
+              Forgot your password?
+            </a> -->
+            <!-- <a class="logo" href="javascript:void(0);" class="text-midnight" [routerLink]="['/sign-up']">
+              Sign In
+            </a> -->
+          </div>
+          <button class="login-form-btn " (click)="login()">Login</button>
+        </div>
+        <!-- <div class="forgot-password mb-4 d-inline-block" [routerLink]="['/sign-up']">
+          <a class="logo" href="javascript:void(0);" class="text-midnight">
+            Sign In
+          </a>
+        </div> -->
+      </form>
+    </div>
+    <div class="login-left-side d-flex">
+      <div class="m-auto z-index-1 ">
+        <img class="w-100" src="./assets/media/Zainergy-logo.svg" alt="Zainengy" />
+      </div>
+      <img src="./assets/media/login-leftside-bg.jpg" class="leftside-element" alt="" />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,137 @@
+<div class="row">
+  <div class="col-md-12 pt-4 mt-3">
+    <h2 class="text-midnight font-weight-bold">Dashboard</h2>
+  </div>
+</div>
+
+<div class="row pb-5">
+
+
+  <div class="col-lg-3">
+    
+    <div class="card fun-blue-bg h-100">
+      <div class="card-body">
+        <cdk-virtual-scroll-viewport [itemSize]="20" style="height: 800px;">
+        <div  style="min-height: calc(100% - 90px);">
+          <div class="treeview js-treeview" *cdkVirtualFor='let sidebar of sidebarArray'>
+            <ul>
+              <li>
+                <div  role="button" aria-expanded="false"  class="treeview__level" id="T{{sidebar.id}}"  (click)="sidebar.isCollapsed = !sidebar.isCollapsed" >
+                  <span class="level-title" >{{sidebar.device_name}}_{{sidebar.location}}</span>                </div>
+                <ul class="collapse" id="{{sidebar.device_name}}"     [ngbCollapse]="sidebar.isCollapsed">
+                  <li *ngFor='let params of sidebar.parameters'>                    
+                    <div class="treeview__level" id="{{params.device_id}}_{{params.device_type_id}}">
+                      <a href="javascript:void(0);" class="level-title text-dark" (click)="getLineGraph(params,sidebar.location); activateClass(sidebar,params)" >{{params.description}}</a>                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        </cdk-virtual-scroll-viewport>
+        
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-9">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card fun-blue-bg mb-3">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <div class="mr-3 align-self-center"><img src="./assets/media/icons/temperature.svg" alt="temperature">
+              </div>
+              <div class="align-self-center">
+                <h6 class="text-midnight mt-2 mb-3">No Of Devices</h6>
+                <h2  class="text-downy">{{ deviceArray.length }} </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card fun-blue-bg mb-3">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <div class="mr-3 align-self-center"><img src="./assets/media/icons/devices.svg" alt="battery"></div>
+              <div class="align-self-center">
+                <h6 class="text-midnight mt-2 mb-3">Active Devices</h6>
+                <h2 class="text-downy">{{activeDevices}}</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="card fun-blue-bg mb-3">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <div class="mr-3 align-self-center"><img src="./assets/media/icons/devices.svg" alt="battery"></div>
+              <div class="align-self-center">
+                <h6 class="text-midnight mt-2 mb-3">Alert Devices</h6>
+                <h2 class="text-downy">{{alertDevces}}</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card fun-blue-bg mb-3">
+          <div class="card-header">
+              Recent Device Activities
+          </div>
+          <div class="card-body">
+              <div class="timeline timeline-xs">
+              
+                  <!-- Timeline Item -->
+                  <div class="timeline-item" *ngFor='let status of deviceStatus'>
+                      <div class="timeline-item-marker">
+                          <div class="timeline-item-marker-text">{{status.minutes}} </div>
+                          <div [ngClass]="[ status.status == true ? 'device-status device-status-active' : status.status == false ? 'device-status device-status-inactive' : 'device-status device-status-notfound']"></div>
+                      </div>
+                      <div class="timeline-item-content" >
+                        <a class="font-weight-bold text-dark" href="#!" [routerLink]="(['/device', status?.device])">{{status.device}} </a>
+                       -> {{status.lastReceived}}
+                    </div>
+                  </div>
+                
+              </div>
+          </div>
+      </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card fun-blue-bg mb-3">
+          <div class="card-body">
+            <div class="chart-card fun-blue-bg mb-4">
+              <div class="chart-title" id="text1"> {{graphTitle}}
+                  <p class="mb-0"> </p>
+              </div>
+            <div *ngIf='showLabels' class="col-md-7 dashboard-graph">
+              <!-- [ngClass]="{'my-class': step === 'step1'}" -->
+              <ul class="buttonwrapper" (click)="viewGraph($event)">
+                <li ><label id="today"  [ngClass]="{'active' : obj.duration == 'today'}">TODAY</label></li>
+                <li ><label id="week" [ngClass]="{'active' : obj.duration == 'week'}">WEEK</label></li>
+                <li ><label id="last 30 days" [ngClass]="{'active' : obj.duration == 'last 30 days'}">MONTH</label></li>
+                <li ><label id="year" [ngClass]="{'active' : obj.duration == 'year'}">YEAR</label></li>
+  
+              </ul>
+            </div>
+            <div *ngIf='showGraph' class="dashboard-graph">
+              <app-line-graph  [dataYaxis]='lineChartData' [dataXaxis]="lineChartLabels"></app-line-graph>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

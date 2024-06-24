@@ -1,0 +1,33 @@
+<!-- Start Left Sidebar -->
+<div class="left side-menu">
+  <button class="button-menu-mobile button-menu-mobile-topbar open-left waves-effect" type="button"><i
+      class="mdi mdi-close"></i></button>
+  <!-- Start Logo -->
+  <div class="topbar-left">
+    <div class="text-center">
+      <a class="logo" href="javascript:void(0);"><img alt="" class="logo"
+          src="./assets/media/Zainergy-logo.svg"></a>
+          <!-- <a class="text-center active" href="javascript:void(0);" (click)="logOut()"> Logout</a> -->
+    </div>
+  </div>
+  <!-- End Logo -->
+  <!-- Start Sidebar -->
+  <div class="sidebar-inner side-menuScroll">
+    <div id="sidebar-menu">
+      <ul (click)="getDeviceName($event)">
+        <li class="" *ngFor='let option of options'>
+          <a  href="javascript:void(0);" [ngClass]="{'active': currentDevice === option.name}"  [routerLink]="([option.route])"><img src='{{option.src}}' />
+            <span>{{option.name}}</span></a>
+        </li>
+        <!-- <li class="" >
+          <a  href="javascript:void(0);"  [ngClass]="{'active': currentDevice === 'Sensor Dashboard'}" [routerLink]="['/devices']"><img src="./assets/media/icons/devices-white.svg" />
+            <span>Sensor Dashboard </span></a>
+        </li> -->
+      </ul>
+    </div>
+    
+    <div class="clearfix"></div>
+  </div>
+  <!-- End Sidebar -->
+</div>
+<!-- Left Sidebar End -->

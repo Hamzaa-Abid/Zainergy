@@ -1,0 +1,7 @@
+{
+    "/custom/directory/*": {
+        "target": "https://zainergy.qavitechnologies.com/directus/public/zainergy",
+        "secure": false,
+        "changeOrigin": true
+    }    
+}
